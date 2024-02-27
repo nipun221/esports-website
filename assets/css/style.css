@@ -406,6 +406,10 @@ body {
   color: var(--text-white);
 }
 
+.navbar-link:hover {
+  color: var(--bg-purple); 
+}
+
 .navbar-item { border-block-start: 1px solid var(--border-space-cadet); }
 
 .navbar-item:last-child { border-block-end: 1px solid var(--border-space-cadet); }
@@ -793,7 +797,7 @@ body {
    * HEADER
    */
 
-  .header .logo img { width: 160px; }
+  .header .logo img { width: 100px; }
 
 
 
