@@ -563,6 +563,11 @@ body {
 .news-card {
   background-color: var(--bg-oxford-blue-alpha-90);
   box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+  transform: scale(1.05);
 }
 
 .news-card .card-content {
