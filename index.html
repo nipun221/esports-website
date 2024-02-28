@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  <div class="cursor-dot" data-cursor-dot></div>
+  <div class="cursor-outline" data-cursor-outline></div>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,11 +28,12 @@
     href="https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Work+Sans:wght@600&display=swap"
     rel="stylesheet">
 
+  <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Pixelify+Sans&display=swap" rel="stylesheet">
   <!-- 
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
-
+  
   <!-- 
     - preload images
   -->
@@ -42,6 +44,10 @@
 
 <body id="top">
 
+  <div id='particles-js'></div>
+
+  <script src="./assets/js/particles.js"></script>
+  <script type="module" src="./assets/js/particlesjs-config.js"></script>
   <!-- 
     - #HEADER
   -->
@@ -101,20 +107,27 @@
       <div class="hero has-before" id="home">
         <div class="container">
 
-          <div class="hero-image"><img src="./assets/images/arcadia_logo.png" width="150" height="50" alt="logo" class="logo-img"></div>
-
-          <p class="section-subtitle">GLITCH2024</p>
-
-          <h1 class="h1 title hero-title">ARCADIA ESPORTS<br> PRESENTS</h1>
-
+          <div class="hero-image"><img src="./assets/images/arcadiaLogo.png" width="500" alt="logo" class="logo-img"></div>
+          <br>
+          <br>
+          <p class="section-subtitle" style="font-size: large;">GLITCH 2024</p>
+          
+          <p class="h1 title hero-title bouncing-letters" style="letter-spacing:0.3px;"> 
+            <span>A</span><span>R</span><span>C</span><span>A</span><span>D</span><span>I</span><span>A</span> 
+            <span>E</span><span>S</span><span>P</span><span>O</span><span>R</span><span>T</span><span>S</span>
+          </p>
+          
+          <p style="font-family: 'Pixelify Sans'; font-size: 30px;">Presents</p>
+          <br>
+          <br>
           <a href="#" class="btn" data-btn>Join With Us</a>
-
+          <br>
           <div class="hero-banner">
             <img src="./assets/images/hero-banner.png" width="850" height="414" alt="hero banner" class="w-100">
-
+            
             <img src="./assets/images/hero-banner-bg.png" alt="" class="hero-banner-bg">
           </div>
-
+          
         </div>
       </div>
 
@@ -134,7 +147,7 @@
           </p>
 
           <h2 class="h2 section-title" data-reveal="bottom">
-            The Esports Club of <br> Gautam Buddha Univeristy:<span class="span"> Arcadia</span>
+            The Esports Club of <br> Gautam Buddha Univeristy:<span class="span" style="font-family: 'Pixelify Sans';"> Arcadia</span>
           </h2>
 
           <p class="section-text-wide" data-reveal="bottom">
@@ -286,7 +299,7 @@
         <div class="footer-brand">
 
           <!-- <h2 class="h2 section-title"><span class="span">Arcadia</span></h2> -->
-          <img src="./assets/images/arcadia_logo.png" width="150" height="50" alt="logo" class="logo-img">
+          <img src="./assets/images/arcadiaLogo.png" width="150" height="50" alt="logo" class="logo-img">
 
           <p class="footer-text">
             Our team is dedicated to providing the best gaming experience for all our users. 
@@ -413,7 +426,6 @@
     - custom js link
   -->
   <script src="./assets/js/script.js"></script>
-
   <!-- 
     - ionicon link
   -->

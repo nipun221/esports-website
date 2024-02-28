@@ -230,7 +230,7 @@ body {
 .section-subtitle {
   color: var(--text-white);
   font-weight: var(--weight-semiBold);
-  font-size: var(--fontSize-5);
+  font-size: var(--fontSize-10);
   text-transform: uppercase;
 }
 
@@ -431,13 +431,48 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* customisations */
+  animation: floating 3s ease-in-out infinite;
 }
 
 .hero .section-subtitle { letter-spacing: 5px; }
 
-.hero-title { margin-block: 20px 25px; }
+/* ------floating---------- */
 
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero-title { 
+  text-align: center;
+  margin-block: 20px 25px;
+  font-size: 10em;
+  font-family: 'Micro 5', monospace; 
+  color: blueviolet; 
+  /* animation: floating 3s ease-in-out infinite; */
+}
+
+.hero-title span {
+  animation-timing-function: ease-in-out;  /* Adjust for desired jump feel */
+  animation-duration: 0.5s;   /* Adjust duration as needed */
+  animation-iteration-count: 1;
+  display: inline-block;
+}
 .hero .btn { margin-inline: auto; }
+
+.hero-title span:hover{
+  animation-timing-function: ease-in-out;  /* Adjust for desired jump feel */
+  animation-duration: 0.5s;   /* Adjust duration as needed */
+  animation-iteration-count: 1;
+  display: inline-block;
+  color:wheat;
+  display: inline-block; /* Allow individual jumps */
+  animation: jump 0.5s ease-in-out alternate infinite; /* Adjust timing and behavior */
+  animation-delay: calc(0.1s * (index - 1)); 
+  
+}
 
 .hero::before {
   background-image: var(--gradient-2);
@@ -455,7 +490,35 @@ body {
 
 .hero-banner-bg { display: none; }
 
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust jump height as needed */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
+.bounce {
+  animation-name: bounce;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);  /* Start at original position */
+  }
+
+  50% {
+    transform: translateY(-20px); /* Jump up at the midpoint */
+  }
+
+  100% {
+    transform: translateY(0);  /* Land back at original position */
+  }
+}
 
 
 
@@ -775,12 +838,58 @@ body {
 /*-----------------------------------*\
   #CUSTOM CURSOR
 \*-----------------------------------*/
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-.cursor { display: none; }
+:root {
+  --cursor-color:#984aff; /* Initial cursor color */
+}
+
+.cursor-dot {
+  width: 13px; /* Adjust width for desired square size */
+  height: 13px; /* Same width as height for square */
+  background-color: var(--cursor-color);
+  /* Force anti-aliasing to be turned off */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.cursor-outline {
+  width: 20px; /* Adjust width for desired outline size */
+  height: 20px; /* Same width as height for square outline */
+  border: 2px solid var(--cursor-color);
+  /* Force anti-aliasing to be turned off */
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.cursor-dot,
+.cursor-outline {
+  opacity: 0.8;
+  position: fixed;
+  top: 50%; /* Position at center of screen */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Fine-tune positioning */
+  pointer-events: none;
+  z-index: 10;
+}
 
 
-
-
+* {
+  cursor: none; /* Hide the default cursor */
+  ;
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES
@@ -923,7 +1032,7 @@ body {
    * CUSTOM CURSOR
    */
 
-  .cursor {
+  /* .cursor {
     display: block;
     position: fixed;
     top: 0;
@@ -945,7 +1054,7 @@ body {
   body .cursor.hovered {
     transform: translate(-50%, -50%) scale(1.3);
     opacity: 0.75;
-  }
+  } */
 
 }
 
