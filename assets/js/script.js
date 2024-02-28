@@ -101,21 +101,41 @@ window.addEventListener("load", revealElementOnScroll);
 /**
  * Custom cursor
  */
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]')
 
-const cursor = document.querySelector("[data-cursor]");
-const hoverElements = [...document.querySelectorAll("a"), ...document.querySelectorAll("button")];
+window.addEventListener('mousemove', (e) => {
 
-const cursorMove = function (event) {
-  cursor.style.top = `${event.clientY}px`;
-  cursor.style.left = `${event.clientX}px`;
-}
+  const posX = e.clientX;
+  const posY = e.clientY;
 
-window.addEventListener("mousemove", cursorMove);
+  cursorDot.style.top = `${posY}px`;
+  cursorDot.style.left = `${posX}px`;
 
-addEventOnElements(hoverElements, "mouseover", function () {
-  cursor.classList.add("hovered");
+  cursorOutline.animate({
+      left: `${posX}px`,
+      top: `${posY}px`
+  }, {duration: 500, fill: 'forwards'});
+
 });
 
-addEventOnElements(hoverElements, "mouseout", function () {
-  cursor.classList.remove("hovered");
-});
+
+// boing bounce 
+
+document.querySelectorAll(".hero-title") 
+.forEach((element) => { 
+    element.addEventListener("mouseover",  
+                             (e) => bounce(e.target)); 
+}); 
+
+function bounce(letter) { 
+    if (!letter.classList.contains("bounce")) { 
+        letter.classList.add("bounce"); 
+        setTimeout( 
+            function () { 
+                letter.classList.remove("bounce"); 
+            }, 
+            1000 
+        ); 
+    } 
+} 
